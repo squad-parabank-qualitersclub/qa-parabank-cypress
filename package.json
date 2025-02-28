@@ -1,0 +1,22 @@
+{
+  "name": "qa-parabank-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy:open": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/squad-parabank-qualitersclub/qa-parabank-cypress.git"
+  },
+  "author": "Priscila Caimi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/squad-parabank-qualitersclub/qa-parabank-cypress/issues"
+  },
+  "homepage": "https://github.com/squad-parabank-qualitersclub/qa-parabank-cypress#readme",
+  "devDependencies": {
+    "cypress": "^14.1.0"
+  }
+}
