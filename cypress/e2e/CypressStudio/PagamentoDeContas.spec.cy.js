@@ -1,9 +1,9 @@
 describe('Validar o pagamento de contas', () => {
   beforeEach(() => {
-    // 0. Pré-condição: Login do usuário
+    // 0. Pré-condição: Login do usuário padrão
     cy.visit('https://parabank.parasoft.com/parabank/index.htm');
-    cy.get('input[name="username"]').type('tatiana.teste05');
-    cy.get('input[name="password"]').type('teste05');
+    cy.get('input[name="username"]').type('john');
+    cy.get('input[name="password"]').type('demo');
     cy.get('input[value="Log In"]').click();
   });
 
