@@ -1,5 +1,7 @@
 import {criarNovoRegistroElements, validarCriacaoNovoRegistroElements} from '../elements/criarNovoRegistro.elements'
 
+const random = Math.floor(Math.random() * 1000)
+
 class CriarNovoRegistroPageObject {
 
     preencherFormularioCriarNovoRegistro() {
@@ -11,7 +13,7 @@ class CriarNovoRegistroPageObject {
         cy.get(criarNovoRegistroElements.inputZipCode).type('123456')
         cy.get(criarNovoRegistroElements.inputPhoneNumber).type('123456')
         cy.get(criarNovoRegistroElements.inputSSN).type('123456')
-        cy.get(criarNovoRegistroElements.inputUsername).type('Teste05')
+        cy.get(criarNovoRegistroElements.inputUsername).type(`teste${random}`)
         cy.get(criarNovoRegistroElements.inputPassword).type('Teste')
         cy.get(criarNovoRegistroElements.inputRepeatedPassword).type('Teste')
         cy.get(criarNovoRegistroElements.buttonRegister).click()
@@ -19,7 +21,7 @@ class CriarNovoRegistroPageObject {
 
     validarCriacaoNovoRegistro() {
         cy.get(validarCriacaoNovoRegistroElements.labelWelcome).should('contain', 'Welcome')
-        cy.get(validarCriacaoNovoRegistroElements.mensagemWelcome).contains('Thank you for registerYour account was created successfully. You are now logged in.ing')
+        cy.get(validarCriacaoNovoRegistroElements.mensagemWelcome).contains('Your account was created successfully. You are now logged in.')
         cy.get(validarCriacaoNovoRegistroElements.titleWelcome).should('contain', 'Welcome')
     }
 }

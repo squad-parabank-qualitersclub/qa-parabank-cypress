@@ -22,4 +22,9 @@
 //
 //
 // -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import criarNovoRegistroPageObject from "./pageObject/criarNovoRegistro.pageObject"
+Cypress.Commands.add('registerAndlogin', () => { 
+    cy.visit('/register.htm');
+    criarNovoRegistroPageObject.preencherFormularioCriarNovoRegistro();
+    criarNovoRegistroPageObject.validarCriacaoNovoRegistro();
+ })
