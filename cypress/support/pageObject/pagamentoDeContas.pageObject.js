@@ -31,11 +31,6 @@ class PagamentoDeContasPageObject {
   }
 
   validarPagamentoDeContas() {
-    cy.get(validarPagamentoDeContasElements.titleWelcome).should(
-      'contain',
-      'Bill Payment Complete'
-    );
-
     // Recupera a conta selecionada antes do envio do pagamento
     cy.get('@selectedAccount').then((selectedAccount) => {
       cy.get(validarPagamentoDeContasElements.mensagemWelcome).should(
@@ -45,6 +40,11 @@ class PagamentoDeContasPageObject {
     });
 
     cy.wait(2000); // Espera adicional de 2 segundos
+
+    cy.get(validarPagamentoDeContasElements.titleWelcome).should(
+      'contain',
+      'Bill Payment Complete'
+    );
   }
 }
 
