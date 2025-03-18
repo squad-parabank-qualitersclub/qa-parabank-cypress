@@ -22,9 +22,16 @@
 //
 //
 // -- This will overwrite an existing command --
-import criarNovoRegistroPageObject from "./pageObject/criarNovoRegistro.pageObject"
-Cypress.Commands.add('registerAndlogin', () => { 
-    cy.visit('/register.htm');
-    criarNovoRegistroPageObject.preencherFormularioCriarNovoRegistro();
-    criarNovoRegistroPageObject.validarCriacaoNovoRegistro();
- })
+import criarNovoRegistroPageObject from './pageObject/criarNovoRegistro.pageObject';
+Cypress.Commands.add('registerAndlogin', () => {
+  cy.visit('/register.htm');
+  criarNovoRegistroPageObject.preencherFormularioCriarNovoRegistro();
+  criarNovoRegistroPageObject.validarCriacaoNovoRegistro();
+});
+
+import PagamentoDeContas from './pageObject/pagamentoDeContas.pageObject';
+Cypress.Commands.add('pagamentoDeContas', () => {
+  cy.get('#leftPanel > ul > :nth-child(4) > a').click();
+  PagamentoDeContas.preencherFormularioPagamentoDeConta();
+  PagamentoDeContas.validarPagamentoDeContas();
+});
