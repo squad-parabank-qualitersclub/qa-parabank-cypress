@@ -10,6 +10,6 @@ export const validarTransferenciaDeDinheiroElements = {
     valorTransferido: '#amountResult',
     contaOrigem: '#fromAccountIdResult',
     contaDestino: '#toAccountIdResult',
-    detalhesTransferencia: '#showResult p:nth-child(1)',
-    sugestaoAtividadeConta: '#showResult p:nth-child(2)'
+    detalhesTransferencia: '#showResult p:nth-child(2)',
+    sugestaoAtividadeConta: '#showResult p:nth-child(3)'
 }

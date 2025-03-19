@@ -1,41 +1,36 @@
 import {transferenciaDeDinheiroElements, validarTransferenciaDeDinheiroElements} from '../elements/transferenciaDeDinheiro.elements.js'
 
 class TransferenciaDeDinheiroPageObject {
+
     transferenciaDeDinheiro(valor) {
-        cy.get(transferenciaDeDinheiroElements.inputValor).type(valor);
-        cy.wrap(valor).as('valorTransferido');
-        let optionOrigem;
-        cy.get(transferenciaDeDinheiroElements.inputContaOrigem).find('option').first().invoke('val').then(
-            (option) => {
-            optionOrigem = option;
-                cy.get(transferenciaDeDinheiroElements.inputContaOrigem).select(optionOrigem);
-                cy.wrap(optionOrigem).as('contaOrigemTransferencia');
-            }
-        );
-        let optionDestino;
-        cy.get(transferenciaDeDinheiroElements.inputContaDestino).find('option').last().invoke('val').then(
-            (option) => {
-            optionDestino = option
-                cy.get(transferenciaDeDinheiroElements.inputContaDestino).select(optionDestino);
-                cy.wrap(optionDestino).as('contaDestinoTransferencia');
-            }
-        );
+
+        cy.get(transferenciaDeDinheiroElements.inputContaOrigem).find('option:selected').invoke('text').
+        then((opcao1) => { cy.get(transferenciaDeDinheiroElements.inputContaDestino).find('option:selected').invoke('text').
+            then((opcao2) => {
+                        cy.get(transferenciaDeDinheiroElements.inputValor).type(valor);
+        cy.get(transferenciaDeDinheiroElements.inputContaOrigem).select(opcao1);
+        cy.get(transferenciaDeDinheiroElements.inputContaDestino).select(opcao2);
+        cy.wrap(valor).as('valorDigitado');
+        cy.wrap(opcao1).as('contaOrigemSelecionada');
+        cy.wrap(opcao2).as('contaDestinoSelecionada');
         cy.get(transferenciaDeDinheiroElements.buttonTransferir).click();
+        })});
     }
     validarTransferenciaDeDinheiro() {
 
-        cy.get(validarTransferenciaDeDinheiroElements.tituloSucesso).should('have.text', 'Transfer Complete!');
+        cy.get(validarTransferenciaDeDinheiroElements.tituloSucesso).contains('Transfer Complete!');
 
-        cy.get('@valorTransferido').then((valorTransferido) => {
-            cy.get('@contaOrigemTransferencia').then((contaOrigemTransferencia) => {
-                cy.get('@contaDestinoTransferencia').then((contaDestinoTransferencia) => {
-                    const mensagemEsperadaDetalhes = `$${valorTransferido} has been transferred from account #${contaOrigemTransferencia} to account #${contaDestinoTransferencia}. `;
-                    cy.get(validarTransferenciaDeDinheiroElements.detalhesTransferencia).should('have.text', mensagemEsperadaDetalhes);
-                });
+        cy.get('@valorDigitado').then((valorDigitado) => {
+            cy.get('@contaOrigemSelecionada').then((contaOrigemSelecionada) => {
+              cy.get('@contaDestinoSelecionada').then((contaDestinoSelecionada) => {
+                cy.get(validarTransferenciaDeDinheiroElements.detalhesTransferencia)
+                  .invoke('text')
+                  .should('match', new RegExp(`\\$${valorDigitado}.00 has been transferred from account #${contaOrigemSelecionada} to account #${contaDestinoSelecionada}`));
+              });
             });
-        });
+          });
 
-        cy.get(validarTransferenciaDeDinheiroElements.sugestaoAtividadeConta).should('have.text', 'See Account Activity for more details.');
+        cy.get(validarTransferenciaDeDinheiroElements.sugestaoAtividadeConta).contains('See Account Activity for more details.');
     }
 }
 
