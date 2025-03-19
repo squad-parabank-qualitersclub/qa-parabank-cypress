@@ -1,4 +1,5 @@
 export const pagamentoDeContasElements = {
+  linkPagamentoDeContas: '#leftPanel > ul > :nth-child(4) > a',
   inputPayeeName: 'input[name="payee.name"]',
   inputAddress: 'input[name="payee.address.street"]',
   inputCity: 'input[name="payee.address.city"]',

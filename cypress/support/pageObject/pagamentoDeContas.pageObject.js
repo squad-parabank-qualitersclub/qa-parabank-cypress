@@ -4,6 +4,10 @@ import {
 } from '../elements/pagamentoDeContas.elements';
 
 class PagamentoDeContasPageObject {
+  acessarPagamentoDeContas() {
+    cy.get(pagamentoDeContasElements.linkPagamentoDeContas).click();
+  }
+
   preencherFormularioPagamentoDeConta() {
     cy.get(pagamentoDeContasElements.inputPayeeName).type('Empresa de Teste 2');
     cy.get(pagamentoDeContasElements.inputAddress).type('Rua de Teste, 1234');
@@ -14,37 +18,37 @@ class PagamentoDeContasPageObject {
     cy.get(pagamentoDeContasElements.inputAccountNumber).type('123467');
     cy.get(pagamentoDeContasElements.inputVerifyAccountNumber).type('123467');
     cy.get(pagamentoDeContasElements.inputAmount).type('100.00');
-
-    // Captura a conta selecionada dinamicamente
-    cy.get(pagamentoDeContasElements.selectFromAccount)
-      .invoke('val')
-      .then((selectedAccount) => {
-        cy.wrap(selectedAccount).as('selectedAccount'); // Salva a conta como alias
-
-        // Seleciona a conta correta
-        cy.get(pagamentoDeContasElements.selectFromAccount).select(
-          selectedAccount
-        );
-      });
-
-    cy.get(pagamentoDeContasElements.buttonSendPayment).click();
   }
 
   validarPagamentoDeContas() {
-    // Recupera a conta selecionada antes do envio do pagamento
-    cy.get('@selectedAccount').then((selectedAccount) => {
-      cy.get(validarPagamentoDeContasElements.mensagemWelcome).should(
-        'contain',
-        `Bill Payment to Empresa de Teste 2 in the amount of $100.00 from account ${selectedAccount} was successful.`
-      );
-    });
+    cy.get(pagamentoDeContasElements.selectFromAccount)
+      .find('option') // Pega todas as opções disponíveis no dropdown
+      .then(($options) => {
+        const availableOptions = [...$options]
+          .map((opt) => opt.value)
+          .filter((val) => val); // Filtra opções vazias
+        const randomAccount =
+          availableOptions[Math.floor(Math.random() * availableOptions.length)]; // Escolhe um aleatório
 
-    cy.wait(2000); // Espera adicional de 2 segundos
+        cy.log('Conta selecionada:', randomAccount); // Log para depuração
+        cy.get(pagamentoDeContasElements.selectFromAccount).select(
+          randomAccount
+        );
 
-    cy.get(validarPagamentoDeContasElements.titleWelcome).should(
-      'contain',
-      'Bill Payment Complete'
-    );
+        cy.get(pagamentoDeContasElements.buttonSendPayment).click();
+
+        cy.get(validarPagamentoDeContasElements.mensagemWelcome).should(
+          'contain',
+          `Bill Payment to Empresa de Teste 2 in the amount of $100.00 from account ${randomAccount} was successful.`
+        );
+
+        cy.wait(2000); // Espera adicional de 2 segundos
+
+        cy.get(validarPagamentoDeContasElements.titleWelcome).should(
+          'contain',
+          'Bill Payment Complete'
+        );
+      });
   }
 }
 
