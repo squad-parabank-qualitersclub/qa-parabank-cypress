@@ -22,9 +22,9 @@
 //
 //
 // -- This will overwrite an existing command --
-import criarNovoRegistroPageObject from "./pageObject/criarNovoRegistro.pageObject"
-Cypress.Commands.add('registerAndlogin', () => { 
-    cy.visit('/register.htm');
-    criarNovoRegistroPageObject.preencherFormularioCriarNovoRegistro();
-    criarNovoRegistroPageObject.validarCriacaoNovoRegistro();
- })
+import criarNovoRegistroPageObject from './pageObject/criarNovoRegistro.pageObject';
+Cypress.Commands.add('registerAndlogin', () => {
+  cy.visit('/register.htm');
+  criarNovoRegistroPageObject.preencherFormularioCriarNovoRegistro();
+  criarNovoRegistroPageObject.validarCriacaoNovoRegistro();
+});
