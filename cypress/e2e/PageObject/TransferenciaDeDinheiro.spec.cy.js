@@ -1,5 +1,4 @@
 import TransferenciaDeDinheiro from '../../support/pageObject/transferenciaDeDinheiro.pageObject';
-import  CriarNovoRegistro  from '../../support/pageObject/criarNovoRegistro.pageObject';
 
 describe('Validar a transferência de dinheiro', () => {
     before(() => {
