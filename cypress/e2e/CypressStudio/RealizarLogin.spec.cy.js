@@ -1,5 +1,5 @@
-describe('template spec', () => {
-    it('passes', () => {
+describe('Validar Login com sucesso', () => {
+    it('Logar com sucesso', () => {
       cy.visit('https://parabank.parasoft.com/parabank/index.htm')
       /* ==== Generated with Cypress Studio ==== */
       cy.get(':nth-child(2) > .input').type('patyrosa');
@@ -10,3 +10,5 @@ describe('template spec', () => {
       /* ==== End Cypress Studio ==== */
     })
   })
+
+ 
