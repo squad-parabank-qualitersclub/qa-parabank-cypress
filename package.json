@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/squad-parabank-qualitersclub/qa-parabank-cypress#readme",
   "devDependencies": {
-    "cypress": "^14.1.0"
+    "cypress": "^14.2.0"
   }
 }
