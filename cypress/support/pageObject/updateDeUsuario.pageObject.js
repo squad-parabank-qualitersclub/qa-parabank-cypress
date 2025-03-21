@@ -1,9 +1,13 @@
-import updateDeUsuarioElements from '../elements/updateDeUsuario.elements'
+import {
+    updateDeUsuarioElements,
+    validateUpdate,
+    menuUpdate
+}from '../elements/updateDeUsuario.elements';
 
 class UpdateDeUsuarioPageObject {
 
     acessarUpdateDeUsuario() {
-        cy.get(updateDeUsuarioElements.menu).click();
+        cy.get(menuUpdate.menuUpdateUser).click();
     }
 
     preencherFormularioUpdateDeUsuario() {

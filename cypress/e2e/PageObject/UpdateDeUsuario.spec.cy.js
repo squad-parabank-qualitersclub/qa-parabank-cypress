@@ -1,5 +1,5 @@
 
-import  UpdateDeUsuario  from '../../support/pageObject/updateDeUsuario.pageObjet'
+import  UpdateDeUsuario  from '../../support/pageObject/updateDeUsuario.pageObject'
 
 describe('Feature: Update de usuario', () => {
     before(() => {

@@ -1,10 +1,4 @@
-
 export const updateDeUsuarioElements = {
-
-    // Navegação para atualização de usuário
-    menuUpdateUser: '#leftPanel > ul > :nth-child(6) > a',
-
-    // Formulários de atualização
     inputFirstName: '#customer\\.firstName',
     inputLastName: '#customer\\.lastName',
     inputStreet: '#customer\\.address\\.street',
@@ -12,16 +6,15 @@ export const updateDeUsuarioElements = {
     inputState: '#customer\\.address\\.state',
     inputZipCode: '#customer\\.address\\.zipCode',
     inputPhoneNumber: '#customer\\.phoneNumber',
-    buttonUpdate: '[colspan="2"] > .button',
+    buttonUpdate: '[colspan="2"] > .button'
 
-    
+}
 
-    
+export const menuUpdate = {
+    menuUpdateUser: '#leftPanel > ul > :nth-child(6) > a',
+}
 
-    // Resultado da atualização
+export const validateUpdate = {
     titleUpdateResult: '#updateProfileResult > .title',
-    messageUpdateResult:'#messageUpdateResult > P '
-
-    
-
-};
+    messageUpdateResult: '#messageUpdateResult > P '
+}
