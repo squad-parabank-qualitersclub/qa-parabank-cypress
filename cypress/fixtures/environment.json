@@ -1,0 +1,19 @@
+{
+  "register": {
+    "firstName": "Priscila",
+    "lastName": "Teste",
+    "street": "Rua de Teste",
+    "city": "Cidade de Teste",
+    "state": "Estado de Teste",
+    "zipCode": "Zip Code",
+    "phoneNumber": "phone Number",
+    "ssn": "ssn",
+    "userName": "priscila.teste",
+    "password": "teste",
+    "msgeRegisterUser": "Your account was created successfully. You are now logged in."
+  },
+  "login":{
+    "userName": "john",
+    "senha": "demo"
+  }
+}
