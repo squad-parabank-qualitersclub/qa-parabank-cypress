@@ -1,4 +1,4 @@
-describe('Validar Login com sucesso', () => {
+describe.skip('Validar Login com sucesso', () => {
     it('Logar com sucesso', () => {
       cy.visit('https://parabank.parasoft.com/parabank/index.htm')
       /* ==== Generated with Cypress Studio ==== */

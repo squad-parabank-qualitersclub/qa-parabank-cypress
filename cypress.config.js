@@ -9,4 +9,11 @@ module.exports = defineConfig({
     },
     baseUrl: "https://parabank.parasoft.com/parabank",
   },
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'report',
+    overwrite: false,
+    html: true,
+    json: true,
+  },
 });

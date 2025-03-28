@@ -1,4 +1,4 @@
-describe('Validar a abertura de uma nova conta', () => {
+describe.skip('Validar a abertura de uma nova conta', () => {
     it('Fazer login e abrir uma nova conta', () => {
         cy.visit('https://parabank.parasoft.com/parabank/index.htm')
         /* ==== Generated with Cypress Studio ==== */

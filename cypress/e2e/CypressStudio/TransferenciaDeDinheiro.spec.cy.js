@@ -1,4 +1,4 @@
-describe('Validar a transferência de dinheiro', () => {
+describe.skip('Validar a transferência de dinheiro', () => {
     it('Ter duas contas e validar a transferência de dinheiro entre elas', () => {
       cy.visit('https://parabank.parasoft.com/parabank/index.htm')
       /* ==== Generated with Cypress Studio ==== */

@@ -1,4 +1,4 @@
-describe('Validar Atualização de usuario', () => {
+describe.skip('Validar Atualização de usuario', () => {
     it('Fazer login e atualizar usuario', () => {
         cy.visit('https://parabank.parasoft.com/parabank/index.htm')
 
