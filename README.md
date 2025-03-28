@@ -121,7 +121,7 @@ Sistema fora do ar para a automação
 </details>
 
 <details>
-<summary>Transfer Funds - QA responsável: William</summary>
+<summary>Transfer Funds - QA responsável: Willams</summary>
 
 ```
 Sistema fora do ar para a automação
