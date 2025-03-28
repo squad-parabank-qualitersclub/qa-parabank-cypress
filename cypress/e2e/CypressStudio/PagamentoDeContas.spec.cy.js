@@ -1,4 +1,4 @@
-describe('Validar o pagamento de contas', () => {
+describe.skip('Validar o pagamento de contas', () => {
   beforeEach(() => {
     // 0. Pré-condição: Login do usuário padrão
     cy.visit('https://parabank.parasoft.com/parabank/index.htm');

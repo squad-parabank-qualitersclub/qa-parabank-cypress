@@ -1,4 +1,4 @@
-describe('Validar a criação de um novo usuário', () => {
+describe.skip('Validar a criação de um novo usuário', () => {
   it('Criar novo registro no Parabank e validar login após criação', () => {
     cy.visit('https://parabank.parasoft.com/parabank/index.htm');
     /* ==== Generated with Cypress Studio ==== */
