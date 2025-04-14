@@ -23,8 +23,11 @@
 //
 // -- This will overwrite an existing command --
 import criarNovoRegistroPageObject from './pageObject/criarNovoRegistro.pageObject';
+
 Cypress.Commands.add('registerAndlogin', () => {
   cy.visit('/register.htm');
-  criarNovoRegistroPageObject.preencherFormularioCriarNovoRegistro();
-  criarNovoRegistroPageObject.validarCriacaoNovoRegistro();
+  cy.fixture('environment.json').then((userData) => {
+    criarNovoRegistroPageObject.preencherFormularioCriarNovoRegistro(userData.register);
+    criarNovoRegistroPageObject.validarCriacaoNovoRegistro(userData.register);
+  });
 });
